@@ -11,7 +11,7 @@ function Nav() {
         <>
             <nav className="bg-[#2F2F2F] p-4">
                 <div className="container mx-auto flex justify-between items-center">
-                    <div className="text-white text-2xl font-bold">MyPortfolio</div>
+                    <div className="text-white text-2xl font-bold"><a href="/">MyPortfolio</a></div>
                     <div className="md:hidden">
                         <button onClick={toggleMenu} className="text-white focus:outline-none">
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -20,8 +20,8 @@ function Nav() {
                         </button>
                     </div>
                     <div className={`flex-col md:flex md:flex-row md:items-center md:space-x-6 ${isOpen ? 'flex' : 'hidden'}`}>
-                        <a href="#about" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">About</a>
-                        <a href="#education" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Education</a>
+                        <a href="/" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">About</a>
+                        <a href="education" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Education</a>
                         <a href="#skills" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Skills</a>
                         <a href="#projects" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Projects</a>
                         <a href="#contact" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Contact</a>

@@ -29,12 +29,13 @@ export default {
       },
       animation: {
         typing: "typing 5s steps(50), blink .7s ",
-        typing2: "typing 3s steps(100), blink .7s "
+        typing2: "typing 3s steps(100), blink .7s ",
+        typing3: "typing 10s steps(50), blink .1s "
       }
     },
   },
   plugins: [
     require('tailwindcss-animated'),
-    require('tailwind-scrollbar-hide')
+    
   ],
 }
