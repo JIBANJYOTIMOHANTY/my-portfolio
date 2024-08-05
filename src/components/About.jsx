@@ -4,22 +4,22 @@ import LinkedIn from '@mui/icons-material/LinkedIn';
 import { GitHub, Instagram } from '@mui/icons-material';
 
 const About = () => {
-    const [textVisible, setTextVisible] = useState(false);
+  const [textVisible, setTextVisible] = useState(false);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setTextVisible(true)
-        },2000);
-        return () => clearTimeout(timer);
-    },[])
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTextVisible(true)
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [])
 
-    
-    return (
-        <div className='w-screen bg-[#2f2f2f]'>
+
+  return (
+    <div className='w-screen bg-[#2f2f2f]' id = "about">
       <div className='flex flex-col md:flex-row-reverse md:mt-0'>
         {/* Image Section */}
-        <section className='w-full md:w-1/2 h-auto mt-16 md:mt-20 md:mr-40 flex justify-center md:justify-end'>
-          <img src={jiban} alt="Jiban Jyoti Mohanty" className='w-full md:w-3/4 h-full rounded-xl' />
+        <section className='w-full md:w-1/2 h-auto mt-16 md:mt-10 md:mr-0 lg:mr-30 flex justify-center '>
+          <img src={jiban} alt="Jiban Jyoti Mohanty" className='w-full md:w-full lg:w-3/4 h-full rounded-xl' />
         </section>
 
         {/* Text Section */}
@@ -27,14 +27,14 @@ const About = () => {
           <p className='text-white text-5xl md:text-7xl font-poppins font-semibold animate-typing overflow-hidden whitespace-nowrap'>
             Hi, I am
           </p>
-          <p className={`text-white w-full text-3xl md:text-6xl font-poppins font-semibold animate-typing2 overflow-hidden whitespace-nowrap animate-delay-[2s] ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <p className={`text-white w-full text-3xl md:text-4xl lg:text-5xl font-poppins font-semibold animate-typing2 overflow-hidden whitespace-nowrap animate-delay-[2s] ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
             Jiban Jyoti Mohanty
           </p>
           <p className='text-white text-2xl md:text-4xl mt-8 font-poppins'>
             Fullstack Developer
           </p>
           <p className='text-white text-xl mt-8 font-poppins'>
-            If you'd like to collaborate or have any questions, feel free to reach out to me. <br /> I'm excited to connect with you!
+            If you'd like to collaborate or have any questions, feel free to reach out to me. I'm excited to connect with you!
           </p>
           <div className='flex space-x-6 mt-2'>
             <a href="https://www.linkedin.com/in/jiban-jyoti-mohanty-35005021a/">
@@ -50,7 +50,7 @@ const About = () => {
         </section>
       </div>
     </div>
-    )
+  )
 }
 
 export default About;

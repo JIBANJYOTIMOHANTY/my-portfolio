@@ -1,12 +1,31 @@
 import React, { useState } from 'react'
 import logo from "../logo/logo.png"
+import { duration } from '@mui/material';
 
-function Nav() {
+function Nav({educationRef,skillRef,projectRef,contactRef}) {
     const [isOpen, setIsOpen] = useState(false);
+
+    const scrollToEducaiton = (e) => {
+        // e.preventDefault();
+        educationRef.current.scrollIntoView({ behavior: 'smooth' });
+      };
+    
+    const scrollToSkill = (e) => {
+        skillRef.current.scrollIntoView({behavior:'smooth', duration : 1000})
+    }
+
+    const scrollToProject = (e) => {
+        projectRef.current.scrollIntoView({behavior:'smooth', duration : 1000})
+    }
+
+    const scrollToContact = (e) => {
+        contactRef.current.scrollIntoView({behavior:'smooth', duration : 1000})
+    }
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
     return (
         <>
             <nav className="bg-[#2F2F2F] p-4">
@@ -20,14 +39,18 @@ function Nav() {
                         </button>
                     </div>
                     <div className={`flex-col md:flex md:flex-row md:items-center md:space-x-6 ${isOpen ? 'flex' : 'hidden'}`}>
-                        <a href="/" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">About</a>
-                        <a href="education" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Education</a>
-                        <a href="#skills" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Skills</a>
-                        <a href="#projects" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Projects</a>
-                        <a href="#contact" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm">Contact</a>
-                    </div>
+                        <a href="/" className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm cursor-pointer">About</a>
+
+                        <a onClick={scrollToEducaiton} className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm cursor-pointer ">Education</a>
+
+                    <a onClick={scrollToSkill} className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm cursor-pointer">Skills</a>
+
+                    <a onClick={scrollToProject} className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm cursor-pointer">Projects</a>
+
+                    <a onClick={scrollToContact} className="text-white inline-flex items-center px-1 pt-1 text-xl font-bold hover:shadow-md hover:shadow-slate-800 hover:rounded-sm cursor-pointer">Contact</a>
                 </div>
-            </nav>
+            </div>
+        </nav >
         </>
     )
 }
