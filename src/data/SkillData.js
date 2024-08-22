@@ -73,6 +73,10 @@ export const tools = [
         name : "GITHUB"
     },
     {
+        icon : DockRounded,
+        name : "Docker"
+    },
+    {
         icon : vscode,
         name : "VS CODE"
     },
