@@ -12,7 +12,7 @@ import github from "../images/skills/github.svg"
 import vscode from "../images/skills/vscode.svg"
 import intellij from "../images/skills/intellij.svg"
 import postgresql from "../images/skills/postgresql.svg"
-
+import docker from "..images/skills/docker.svg"
 export const language = [
     
     {
