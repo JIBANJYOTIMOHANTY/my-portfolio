@@ -6,13 +6,13 @@ const Skill = forwardRef((props, ref) => {
   return (
     <div>
       <div ref={ref}>
-        <h1 className="font-semibold text-center text-black text-3xl md:text-4xl lg:text-5xl font-poppins underline mt-0 md:mt-[1rem] md:ml-4">
+        <h1 className="font-semibold text-center text-black text-3xl md:text-4xl lg:text-5xl font-poppins  mt-0 md:mt-[1rem] md:ml-4">
           Skills
         </h1>
-        <div className="w-11/12 m-auto space-y-12 pb-10 rounded-lg bg-white">
+        <div className="w-11/12 m-auto space-y-12 pb-10 rounded-lg border-black border-4 mt-1">
           {/* For Programming language */}
           <div className="ml-10">
-            <h1 className="text-4xl font-poppins text-blue-600 font-bold dark:text-blue-500 mt-5 underline">
+            <h1 className="text-4xl font-poppins text-black font-bold dark:text-black mt-5 underline">
               Programming Language
             </h1>
             <div className="flex flex-wrap space-x-4 sm:space-x-10 mt-4">
@@ -28,7 +28,7 @@ const Skill = forwardRef((props, ref) => {
           </div>
           {/* For Frontend */}
           <div className="ml-10">
-            <h1 className="text-4xl font-poppins text-blue-600 font-bold dark:text-blue-500 underline">
+            <h1 className="text-4xl font-poppins text-black font-bold dark:text-black underline">
               Frontend
             </h1>
             <div className="flex flex-wrap space-x-4 gap-y-10 sm:space-x-10 mt-4">
@@ -44,7 +44,7 @@ const Skill = forwardRef((props, ref) => {
           </div>
           {/* For Backend */}
           <div className="ml-10 mt-10">
-            <h1 className="text-4xl font-poppins text-blue-600 font-bold dark:text-blue-500 underline">
+            <h1 className="text-4xl font-poppins text-black font-bold dark:text-black underline">
               Backend
             </h1>
             <div className="flex flex-wrap space-x-4 gap-y-10 sm:space-x-10 mt-4">
@@ -60,7 +60,7 @@ const Skill = forwardRef((props, ref) => {
           </div>
           {/* Tools */}
           <div className="ml-10 mt-10">
-            <h1 className="text-4xl font-poppins text-blue-600 font-bold dark:text-blue-500 underline mb-2">
+            <h1 className="text-4xl font-poppins text-black font-bold dark:text-black underline mb-2">
               Tools
             </h1>
             <div className="flex flex-wrap space-x-4 sm:space-x-10 mt-4">
