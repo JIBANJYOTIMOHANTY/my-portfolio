@@ -31,7 +31,7 @@ const Contact = forwardRef((props, ref) => {
                 () => {
                     popUp();
                     console.log('SUCCESS!');
-                    form.reset();
+                    form.current.reset();
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
