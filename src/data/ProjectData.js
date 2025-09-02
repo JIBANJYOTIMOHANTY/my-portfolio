@@ -16,7 +16,7 @@ export const ProjectData = [
     },
     {
         name : call ,
-        heading : "Calling App using Spring Boot"
+        heading : "Calling App From Web"
     },
     {
         name : quiz,
