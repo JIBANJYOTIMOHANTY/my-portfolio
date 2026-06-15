@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react'
+import React, { forwardRef, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,9 +7,20 @@ import PersonIcon from '@mui/icons-material/Person';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import MessageIcon from '@mui/icons-material/Message';
 import SendIcon from '@mui/icons-material/Send';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 const Contact = forwardRef((props, ref) => {
     const form = useRef();
+    const [formData, setFormData] = useState({
+        user_name: '',
+        user_email: '',
+        message: ''
+    });
+    const [errors, setErrors] = useState({
+        user_name: '',
+        user_email: '',
+        message: ''
+    });
 
     const popUp = () => {
         toast.success(' Message Sent Successfully!', {
@@ -24,8 +35,56 @@ const Contact = forwardRef((props, ref) => {
         });
     }
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+        if (errors[name]) {
+            setErrors(prev => ({ ...prev, [name]: '' }));
+        }
+    };
+
+    const validate = () => {
+        let tempErrors = { user_name: '', user_email: '', message: '' };
+        let isValid = true;
+
+        if (!formData.user_name.trim()) {
+            tempErrors.user_name = 'Name is required.';
+            isValid = false;
+        } else if (formData.user_name.trim().length < 2) {
+            tempErrors.user_name = 'Name must be at least 2 characters.';
+            isValid = false;
+        }
+
+        if (!formData.user_email.trim()) {
+            tempErrors.user_email = 'Email address is required.';
+            isValid = false;
+        } else {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.user_email.trim())) {
+                tempErrors.user_email = 'Please enter a valid email address.';
+                isValid = false;
+            }
+        }
+
+        if (!formData.message.trim()) {
+            tempErrors.message = 'Message is required.';
+            isValid = false;
+        } else if (formData.message.trim().length < 10) {
+            tempErrors.message = 'Message must be at least 10 characters.';
+            isValid = false;
+        }
+
+        setErrors(tempErrors);
+        return isValid;
+    };
+
     const sendEmail = (e) => {
         e.preventDefault();
+
+        if (!validate()) {
+            toast.error('Please correct the validation errors below.', { theme: "dark" });
+            return;
+        }
 
         emailjs
             .sendForm('service_kt7xhjc', 'template_nmwmg7l', form.current, {
@@ -35,6 +94,7 @@ const Contact = forwardRef((props, ref) => {
                 () => {
                     popUp();
                     console.log('SUCCESS!');
+                    setFormData({ user_name: '', user_email: '', message: '' });
                     form.current.reset();
                 },
                 (error) => {
@@ -69,44 +129,77 @@ const Contact = forwardRef((props, ref) => {
                     <form ref={form} onSubmit={sendEmail} className="space-y-6">
                         {/* Name Input */}
                         <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-fuchsia-400 transition-colors">
+                            <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none ${errors.user_name ? 'text-rose-500' : 'text-gray-500 group-focus-within:text-fuchsia-400'} transition-colors`}>
                                 <PersonIcon fontSize="small" />
                             </div>
                             <input 
                                 type="text" 
                                 name="user_name" 
-                                required
                                 placeholder="Your Name" 
-                                className="w-full pl-11 pr-4 py-4 bg-black/50 border border-cyan-500/25 rounded-xl outline-none hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)] text-white font-mono text-base placeholder-gray-600 transition-all duration-300" 
+                                value={formData.user_name}
+                                onChange={handleChange}
+                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${
+                                    errors.user_name 
+                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]' 
+                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                }`} 
                             />
+                            {errors.user_name && (
+                                <p className="text-rose-450 text-xs font-mono mt-1.5 pl-1 flex items-center gap-1 animate-pulse">
+                                    <ErrorOutlineIcon sx={{ fontSize: 14 }} />
+                                    {errors.user_name}
+                                </p>
+                            )}
                         </div>
 
                         {/* Email Input */}
                         <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-fuchsia-400 transition-colors">
+                            <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none ${errors.user_email ? 'text-rose-500' : 'text-gray-500 group-focus-within:text-fuchsia-400'} transition-colors`}>
                                 <AlternateEmailIcon fontSize="small" />
                             </div>
                             <input 
                                 type="email" 
                                 name="user_email" 
-                                required
                                 placeholder="Your Email Address" 
-                                className="w-full pl-11 pr-4 py-4 bg-black/50 border border-cyan-500/25 rounded-xl outline-none hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)] text-white font-mono text-base placeholder-gray-600 transition-all duration-300" 
+                                value={formData.user_email}
+                                onChange={handleChange}
+                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${
+                                    errors.user_email 
+                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]' 
+                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                }`} 
                             />
+                            {errors.user_email && (
+                                <p className="text-rose-450 text-xs font-mono mt-1.5 pl-1 flex items-center gap-1 animate-pulse">
+                                    <ErrorOutlineIcon sx={{ fontSize: 14 }} />
+                                    {errors.user_email}
+                                </p>
+                            )}
                         </div>
 
                         {/* Message Input */}
                         <div className="relative group">
-                            <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none text-gray-500 group-focus-within:text-fuchsia-400 transition-colors">
+                            <div className={`absolute top-4 left-0 pl-4 flex items-start pointer-events-none ${errors.message ? 'text-rose-500' : 'text-gray-500 group-focus-within:text-fuchsia-400'} transition-colors`}>
                                 <MessageIcon fontSize="small" />
                             </div>
                             <textarea 
                                 name="message" 
-                                required
                                 rows="5"
                                 placeholder="Your Message" 
-                                className="w-full pl-11 pr-4 py-4 bg-black/50 border border-cyan-500/25 rounded-xl outline-none hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)] text-white font-mono text-base placeholder-gray-600 transition-all duration-300 resize-none" 
+                                value={formData.message}
+                                onChange={handleChange}
+                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 resize-none text-white font-mono text-base placeholder-gray-600 ${
+                                    errors.message 
+                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]' 
+                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                }`} 
                             />
+                            {errors.message && (
+                                <p className="text-rose-450 text-xs font-mono mt-1.5 pl-1 flex items-center gap-1 animate-pulse">
+                                    <ErrorOutlineIcon sx={{ fontSize: 14 }} />
+                                    {errors.message}
+                                </p>
+                            )}
                         </div>
 
                         {/* Submit Button */}
