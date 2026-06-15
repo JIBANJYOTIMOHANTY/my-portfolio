@@ -14,7 +14,7 @@ const About = () => {
   }, [])
 
   return (
-    <div className="w-full bg-transparent min-h-[85vh] flex items-center py-12 md:py-20" id="about">
+    <div className="w-full bg-transparent min-h-[85vh] flex items-center" id="about">
       <div className="container mx-auto px-4 md:px-12 lg:px-24">
         <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12">
           {/* Image Section with Hologram Target lines */}
@@ -24,13 +24,13 @@ const About = () => {
             <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-cyan-400"></div>
             <div className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-cyan-400"></div>
             <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-cyan-400"></div>
-            
+
             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-fuchsia-600 rounded-2xl blur-2xl opacity-10 group-hover:opacity-20 transition duration-500"></div>
             <div className="relative p-1 bg-gradient-to-tr from-cyan-500/50 via-gray-900 to-fuchsia-500/50 rounded-2xl shadow-[0_0_25px_rgba(6,182,212,0.15)] overflow-hidden max-w-sm md:max-w-md">
-              <img 
-                src={jiban} 
-                alt="Jiban Jyoti Mohanty" 
-                className="w-full h-auto object-cover rounded-xl transform hover:scale-102 transition duration-500 filter brightness-95 contrast-105" 
+              <img
+                src={jiban}
+                alt="Jiban Jyoti Mohanty"
+                className="w-full h-auto object-cover rounded-xl transform hover:scale-102 transition duration-500 filter brightness-95 contrast-105"
               />
               <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.15)_50%)] bg-[size:100%_4px] pointer-events-none"></div>
             </div>
@@ -54,10 +54,10 @@ const About = () => {
             <p className="text-gray-400 text-base md:text-lg mt-6 font-poppins leading-relaxed max-w-xl">
               If you'd like to collaborate or have any questions, feel free to reach out to me. I'm excited to connect with you and build something amazing together!
             </p>
-            
+
             {/* Social Links */}
             <div className="flex items-center space-x-4 mt-8">
-              <a 
+              <a
                 href="https://www.linkedin.com/in/jiban-jyoti-mohanty-35005021a/"
                 target="_blank"
                 rel="noreferrer"
@@ -65,7 +65,7 @@ const About = () => {
               >
                 <LinkedIn sx={{ fontSize: 28 }} />
               </a>
-              <a 
+              <a
                 href="https://github.com/JIBANJYOTIMOHANTY/"
                 target="_blank"
                 rel="noreferrer"
@@ -73,7 +73,7 @@ const About = () => {
               >
                 <GitHub sx={{ fontSize: 28 }} />
               </a>
-              <a 
+              <a
                 href="https://www.instagram.com/jiban__jyoti__mohanty/"
                 target="_blank"
                 rel="noreferrer"
