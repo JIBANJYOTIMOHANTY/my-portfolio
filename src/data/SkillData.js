@@ -55,14 +55,14 @@ export const devopsTools = [
     { icon: "https://cdn.simpleicons.org/jenkins/D33833", name: "Jenkins" },
     { icon: "https://cdn.simpleicons.org/nginx/009639", name: "Nginx" },
     { icon: "https://cdn.simpleicons.org/postman/FF6C37", name: "Postman" },
-    { icon: "https://cdn.simpleicons.org/amazonwebservices/FF9900", name: "AWS" },
-    { icon: "https://cdn.simpleicons.org/microsoftazure/0078D4", name: "Microsoft Azure" }
+    { icon: "https://api.iconify.design/logos:aws.svg", name: "AWS" },
+    { icon: "https://api.iconify.design/logos:microsoft-azure.svg", name: "Microsoft Azure" }
 ];
 
 export const aiAssistance = [
     { icon: "https://cdn.simpleicons.org/githubcopilot/ffffff", name: "GitHub Copilot" },
     { icon: "https://cdn.simpleicons.org/anthropic/CC9B7A", name: "Claude" },
     { icon: "https://cdn.simpleicons.org/cursor/00e1d9", name: "Cursor" },
-    { icon: "https://cdn.simpleicons.org/openai/ffffff", name: "OpenAI" },
+    { icon: "https://api.iconify.design/simple-icons:openai.svg?color=white", name: "OpenAI" },
     { icon: "https://cdn.simpleicons.org/googlegemini/8E75FF", name: "Gemini" }
 ];
