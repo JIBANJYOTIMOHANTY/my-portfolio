@@ -37,16 +37,17 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className="min-h-screen w-full bg-[#2F2F2F] relative overflow-x-hidden text-white selection:bg-indigo-500 selection:text-white font-sans">
-        {/* Ambient Glow Background Blobs */}
-        <div className="absolute top-20 left-[-10%] w-[35rem] h-[35rem] bg-indigo-500/5 rounded-full blur-[130px] pointer-events-none"></div>
-        <div className="absolute top-[80vh] right-[-10%] w-[40rem] h-[40rem] bg-purple-500/5 rounded-full blur-[130px] pointer-events-none"></div>
-        <div className="absolute top-[160vh] left-[-5%] w-[35rem] h-[35rem] bg-indigo-500/5 rounded-full blur-[130px] pointer-events-none"></div>
-        <div className="absolute top-[240vh] right-[-5%] w-[40rem] h-[40rem] bg-purple-500/5 rounded-full blur-[130px] pointer-events-none"></div>
+      <div className="min-h-screen w-full bg-[#08080C] relative overflow-x-hidden text-gray-200 selection:bg-cyan-500 selection:text-black font-sans bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:32px_32px]">
+        {/* Neon Ambient Light Flares */}
+        <div className="absolute top-20 left-[-20%] w-[45rem] h-[45rem] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-[80vh] right-[-20%] w-[45rem] h-[45rem] bg-fuchsia-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-[180vh] left-[-15%] w-[45rem] h-[45rem] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-[280vh] right-[-15%] w-[45rem] h-[45rem] bg-fuchsia-500/5 rounded-full blur-[140px] pointer-events-none"></div>
         
-        {/* Core Sections */}
+        {/* Navigation */}
         <Nav educationRef={educationRef} experienceRef={experienceRef} skillRef={skillRef} projectRef={projectRef} contactRef={contactRef} />
         
+        {/* Core Layout */}
         <div className="relative z-10">
           <About />
           <Experience ref={experienceRef} />
@@ -58,10 +59,10 @@ function App() {
         
         <Footer educationRef={educationRef} experienceRef={experienceRef} skillRef={skillRef} projectRef={projectRef} contactRef={contactRef} />
 
-        {/* Scroll To Top Button */}
+        {/* Cyberpunk Glowing Scroll To Top Button */}
         <button 
           onClick={scrollToTop}
-          className={`fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-650 hover:to-purple-650 text-white rounded-xl shadow-lg hover:shadow-indigo-500/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+          className={`fixed bottom-8 right-8 z-50 p-3 bg-black hover:bg-cyan-500 border border-cyan-500/50 hover:border-cyan-400 text-cyan-400 hover:text-black rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:shadow-[0_0_20px_#06b6d4] transition-all duration-300 cursor-pointer ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
           aria-label="Scroll to top"
         >
           <ArrowUpwardIcon fontSize="medium" />
