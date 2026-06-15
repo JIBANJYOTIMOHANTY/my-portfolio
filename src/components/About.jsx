@@ -45,7 +45,7 @@ const About = () => {
             <h1 className="text-white text-5xl md:text-7xl font-poppins font-extrabold tracking-tight mb-2">
               Hi, I am
             </h1>
-            <h2 className={`text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-purple-400 text-3xl md:text-5xl lg:text-6xl font-mono font-extrabold tracking-wide transition-opacity duration-1000 ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <h2 className={`text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-purple-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mono font-extrabold tracking-wide whitespace-nowrap transition-opacity duration-1000 ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
               Jiban Jyoti Mohanty
             </h2>
             <h3 className="text-gray-300 text-xl md:text-3xl mt-4 font-mono font-semibold flex items-center gap-2.5">
