@@ -8,6 +8,9 @@ const Projects = forwardRef((props, ref) => {
   // Let's create some representative tags for the project titles to make them look extremely professional
   const getTags = (title) => {
     const titleLower = title.toLowerCase();
+    if (titleLower.includes('bank')) {
+      return ['React', 'Spring Boot', 'PostgreSQL', 'Redux'];
+    }
     if (titleLower.includes('employee') || titleLower.includes('management')) {
       return ['React', 'SpringBoot', 'MySQL', 'REST API'];
     }
@@ -28,6 +31,9 @@ const Projects = forwardRef((props, ref) => {
 
   const getDesc = (title) => {
     const titleLower = title.toLowerCase();
+    if (titleLower.includes('bank')) {
+      return 'A secure banking system featuring account creation, money transfers, transactional ledger histories, and role-based client dashboard access.';
+    }
     if (titleLower.includes('employee') || titleLower.includes('management')) {
       return 'A enterprise grade system to track employee data, assign roles, manage performance registers, and structure organization hierarchies.';
     }
