@@ -43,11 +43,11 @@ const Experience = forwardRef((props, ref) => {
                 <h2 className="text-2xl md:text-3xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 group-hover:from-cyan-300 group-hover:to-fuchsia-400 transition-all">
                   Software Engineer Level 1
                 </h2>
-                
+
                 <div className="flex flex-wrap items-center gap-4 mt-3 text-gray-400 text-sm md:text-base font-mono">
                   <span className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
                     <BusinessIcon fontSize="small" className="text-cyan-400" />
-                    Oditek Solutions Pvt Limited
+                    Oditek Solutions
                   </span>
                   <span className="hidden md:inline text-gray-700">|</span>
                   <span className="flex items-center gap-1.5 hover:text-fuchsia-450 transition-colors">
@@ -82,8 +82,8 @@ const Experience = forwardRef((props, ref) => {
             <div className="mt-8 pt-6 border-t border-cyan-500/10">
               <div className="flex flex-wrap gap-2.5">
                 {technologies.map((tech, idx) => (
-                  <span 
-                    key={idx} 
+                  <span
+                    key={idx}
                     className="px-3.5 py-1 rounded font-mono text-xs md:text-sm bg-cyan-950/10 text-cyan-400 border border-cyan-500/20 hover:border-cyan-400 hover:text-white transition-all cursor-default"
                   >
                     {tech}
