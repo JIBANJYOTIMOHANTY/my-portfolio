@@ -46,25 +46,30 @@ const Contact = forwardRef((props, ref) => {
             );
     }
     return (
-        <div ref={ref} className="px-4 sm:px-6 lg:px-8 py-16 bg-[#2F2F2F] text-white" id="contact">
+        <div ref={ref} className="px-4 sm:px-6 lg:px-8 py-16 bg-transparent text-white" id="contact">
             <div className="max-w-4xl mx-auto">
                 {/* Section Heading */}
                 <div className="flex flex-col items-center justify-center mb-12">
-                    <div className="p-3 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-2xl shadow-lg shadow-indigo-500/20 mb-4 animate-bounce duration-1000">
-                        <ContactMailIcon sx={{ fontSize: 48 }} className="text-white" />
+                    <div className="p-3 bg-cyan-950/40 text-cyan-400 border border-cyan-500/30 rounded-2xl shadow-[0_0_15px_rgba(6,182,212,0.15)] mb-4 animate-bounce duration-1000">
+                        <ContactMailIcon sx={{ fontSize: 48 }} />
                     </div>
-                    <h1 className="font-semibold text-center text-white text-3xl md:text-4xl lg:text-5xl font-poppins relative">
-                        Contact Me
-                        <span className="absolute left-1/2 -bottom-2 w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transform -translate-x-1/2"></span>
+                    <h1 className="font-semibold text-center text-white text-3xl md:text-4xl lg:text-5xl font-mono tracking-widest relative">
+                        &lt;CONTACT //&gt;
+                        <span className="absolute left-1/2 -bottom-2 w-24 h-0.5 bg-cyan-500 rounded-full transform -translate-x-1/2 shadow-[0_0_8px_#06b6d4]"></span>
                     </h1>
                 </div>
 
                 {/* Form Card */}
-                <div className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border border-gray-700/50 backdrop-blur-md rounded-2xl p-6 md:p-10 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300">
+                <div className="bg-black/40 border border-cyan-500/20 rounded-2xl p-6 md:p-10 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)] hover:border-cyan-500/40 transition-all duration-300 relative">
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyan-500/40"></div>
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyan-500/40"></div>
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyan-500/40"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500/40"></div>
+                    
                     <form ref={form} onSubmit={sendEmail} className="space-y-6">
                         {/* Name Input */}
                         <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-indigo-400 transition-colors">
+                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-fuchsia-400 transition-colors">
                                 <PersonIcon fontSize="small" />
                             </div>
                             <input 
@@ -72,13 +77,13 @@ const Contact = forwardRef((props, ref) => {
                                 name="user_name" 
                                 required
                                 placeholder="Your Name" 
-                                className="w-full pl-11 pr-4 py-4 bg-gray-800/60 border border-gray-700 rounded-xl outline-none hover:border-gray-600 focus:border-indigo-500 text-white font-poppins text-base placeholder-gray-500 transition-all duration-300" 
+                                className="w-full pl-11 pr-4 py-4 bg-black/50 border border-cyan-500/25 rounded-xl outline-none hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)] text-white font-mono text-base placeholder-gray-600 transition-all duration-300" 
                             />
                         </div>
 
                         {/* Email Input */}
                         <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-indigo-400 transition-colors">
+                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-fuchsia-400 transition-colors">
                                 <AlternateEmailIcon fontSize="small" />
                             </div>
                             <input 
@@ -86,13 +91,13 @@ const Contact = forwardRef((props, ref) => {
                                 name="user_email" 
                                 required
                                 placeholder="Your Email Address" 
-                                className="w-full pl-11 pr-4 py-4 bg-gray-800/60 border border-gray-700 rounded-xl outline-none hover:border-gray-600 focus:border-indigo-500 text-white font-poppins text-base placeholder-gray-500 transition-all duration-300" 
+                                className="w-full pl-11 pr-4 py-4 bg-black/50 border border-cyan-500/25 rounded-xl outline-none hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)] text-white font-mono text-base placeholder-gray-600 transition-all duration-300" 
                             />
                         </div>
 
                         {/* Message Input */}
                         <div className="relative group">
-                            <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none text-gray-400 group-focus-within:text-indigo-400 transition-colors">
+                            <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none text-gray-500 group-focus-within:text-fuchsia-400 transition-colors">
                                 <MessageIcon fontSize="small" />
                             </div>
                             <textarea 
@@ -100,7 +105,7 @@ const Contact = forwardRef((props, ref) => {
                                 required
                                 rows="5"
                                 placeholder="Your Message" 
-                                className="w-full pl-11 pr-4 py-4 bg-gray-800/60 border border-gray-700 rounded-xl outline-none hover:border-gray-600 focus:border-indigo-500 text-white font-poppins text-base placeholder-gray-500 transition-all duration-300 resize-none" 
+                                className="w-full pl-11 pr-4 py-4 bg-black/50 border border-cyan-500/25 rounded-xl outline-none hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)] text-white font-mono text-base placeholder-gray-600 transition-all duration-300 resize-none" 
                             />
                         </div>
 
@@ -108,7 +113,7 @@ const Contact = forwardRef((props, ref) => {
                         <div className="flex justify-center pt-4">
                             <button 
                                 type="submit" 
-                                className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-650 hover:to-purple-650 text-white font-poppins font-bold rounded-xl shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                                className="inline-flex items-center gap-2 px-8 py-3.5 bg-black hover:bg-fuchsia-500 border border-fuchsia-500/50 hover:border-fuchsia-400 text-fuchsia-450 hover:text-black font-mono font-bold rounded-xl shadow-[0_0_15px_rgba(217,70,239,0.15)] hover:shadow-[0_0_20px_#d946ef] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                             >
                                 <SendIcon fontSize="small" />
                                 Send Message
