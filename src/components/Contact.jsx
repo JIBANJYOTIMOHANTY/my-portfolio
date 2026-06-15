@@ -2,12 +2,17 @@ import React, { forwardRef, useRef } from 'react'
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import PersonIcon from '@mui/icons-material/Person';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import MessageIcon from '@mui/icons-material/Message';
+import SendIcon from '@mui/icons-material/Send';
 
 const Contact = forwardRef((props, ref) => {
     const form = useRef();
 
     const popUp = () => {
-        toast.success(' Message Sent!', {
+        toast.success(' Message Sent Successfully!', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -16,7 +21,6 @@ const Contact = forwardRef((props, ref) => {
             draggable: true,
             progress: undefined,
             theme: "dark",
-            // transition: Bounce
         });
     }
 
@@ -35,26 +39,80 @@ const Contact = forwardRef((props, ref) => {
                 },
                 (error) => {
                     console.log('FAILED...', error.text);
+                    toast.error('Message failed to send. Please try again.', {
+                        theme: "dark"
+                    });
                 },
             );
     }
     return (
-        <div ref={ref} className='w-full h-screen '>
-            <h1 className='text-center font-serif text-4xl md:text-5xl mt-10 font-semibold'>Contact Me</h1>
-            <div className='flex justify-center mt-5 '>
-                <div className='p-5 w-full md:w-3/4 h-full bg-gray-0 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border-2 border-gray-100'>
-                    <form ref={form} onSubmit={sendEmail}>
-                        <div className='flex flex-col items-center '>
+        <div ref={ref} className="px-4 sm:px-6 lg:px-8 py-16 bg-[#2F2F2F] text-white" id="contact">
+            <div className="max-w-4xl mx-auto">
+                {/* Section Heading */}
+                <div className="flex flex-col items-center justify-center mb-12">
+                    <div className="p-3 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-2xl shadow-lg shadow-indigo-500/20 mb-4 animate-bounce duration-1000">
+                        <ContactMailIcon sx={{ fontSize: 48 }} className="text-white" />
+                    </div>
+                    <h1 className="font-semibold text-center text-white text-3xl md:text-4xl lg:text-5xl font-poppins relative">
+                        Contact Me
+                        <span className="absolute left-1/2 -bottom-2 w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transform -translate-x-1/2"></span>
+                    </h1>
+                </div>
 
-                            {/* <label>Name</label> */}
-                            <input type="text" name="user_name" placeholder='Enter your name' className='w-10/12 md:w-3/4 mb-5 p-5 rounded-s-xl bg-[#2F2F2F] border-b-4  border-white outline-none hover:bg-white transition ease-linear duration-500 font-poppins text-sm md:text-2xl text-white hover:text-black  hover:rounded-xl' />
-                            {/* <label>Email</label> */}
-                            <input type="email" name="user_email" placeholder='Enter your email' className='w-10/12 md:w-3/4 mb-5 p-5 rounded-s-xl bg-[#2F2F2F] border-b-4  border-white outline-none hover:bg-white transition ease-linear duration-500 font-poppins text-sm md:text-2xl text-white hover:text-black  hover:rounded-xl' />
-                            {/* <label>Message</label> */}
+                {/* Form Card */}
+                <div className="bg-gradient-to-b from-gray-800/80 to-gray-900/80 border border-gray-700/50 backdrop-blur-md rounded-2xl p-6 md:p-10 hover:shadow-2xl hover:shadow-indigo-500/5 transition-all duration-300">
+                    <form ref={form} onSubmit={sendEmail} className="space-y-6">
+                        {/* Name Input */}
+                        <div className="relative group">
+                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-indigo-400 transition-colors">
+                                <PersonIcon fontSize="small" />
+                            </div>
+                            <input 
+                                type="text" 
+                                name="user_name" 
+                                required
+                                placeholder="Your Name" 
+                                className="w-full pl-11 pr-4 py-4 bg-gray-800/60 border border-gray-700 rounded-xl outline-none hover:border-gray-600 focus:border-indigo-500 text-white font-poppins text-base placeholder-gray-500 transition-all duration-300" 
+                            />
+                        </div>
 
-                            <textarea name="message" placeholder='Enter your message' className='w-10/12 md:w-3/4 mb-5 p-8 bg-[#2F2F2F] border-4 rounded-xl  border-cyan-600 outline-none hover:bg-white transition ease-linear duration-500 font-poppins text-sm md:text-2xl text-white hover:border-black hover:text-black  hover:rounded-xl' />
-                            
-                            <input className='px-20 py-2 md:px-36 md:py-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg  me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 cursor-pointer' type="submit" value="Send" />
+                        {/* Email Input */}
+                        <div className="relative group">
+                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-indigo-400 transition-colors">
+                                <AlternateEmailIcon fontSize="small" />
+                            </div>
+                            <input 
+                                type="email" 
+                                name="user_email" 
+                                required
+                                placeholder="Your Email Address" 
+                                className="w-full pl-11 pr-4 py-4 bg-gray-800/60 border border-gray-700 rounded-xl outline-none hover:border-gray-600 focus:border-indigo-500 text-white font-poppins text-base placeholder-gray-500 transition-all duration-300" 
+                            />
+                        </div>
+
+                        {/* Message Input */}
+                        <div className="relative group">
+                            <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none text-gray-400 group-focus-within:text-indigo-400 transition-colors">
+                                <MessageIcon fontSize="small" />
+                            </div>
+                            <textarea 
+                                name="message" 
+                                required
+                                rows="5"
+                                placeholder="Your Message" 
+                                className="w-full pl-11 pr-4 py-4 bg-gray-800/60 border border-gray-700 rounded-xl outline-none hover:border-gray-600 focus:border-indigo-500 text-white font-poppins text-base placeholder-gray-500 transition-all duration-300 resize-none" 
+                            />
+                        </div>
+
+                        {/* Submit Button */}
+                        <div className="flex justify-center pt-4">
+                            <button 
+                                type="submit" 
+                                className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-650 hover:to-purple-650 text-white font-poppins font-bold rounded-xl shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                            >
+                                <SendIcon fontSize="small" />
+                                Send Message
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -70,7 +128,7 @@ const Contact = forwardRef((props, ref) => {
                 draggable
                 pauseOnHover
                 theme="dark"
-                transition: Bounce />
+            />
         </div>
     )
 });
