@@ -8,15 +8,18 @@ import bank from '../images/projects/bank.png'
 export const ProjectData = [
     {
         name: EmpMng,
-        heading: "Employee Management System"
+        heading: "Employee Management System",
+        liveLink: 'https://github.com/JIBANJYOTIMOHANTY/Employee-Management-System'
     },
     {
         name: cricket,
-        heading: "Cricket Score Informer"
+        heading: "Cricket Score Informer",
+        liveLink: 'https://github.com/JIBANJYOTIMOHANTY/Cricket-Score-Informer'
     },
     {
         name: bank,
-        heading: "Bank Management System"
+        heading: "Bank Management System",
+        liveLink: "https://trust-digital.netlify.app/"
     },
     {
         name: call,
@@ -24,10 +27,12 @@ export const ProjectData = [
     },
     {
         name: quiz,
-        heading: "Quiz App"
+        heading: "Quiz App",
+        liveLink: 'https://github.com/JIBANJYOTIMOHANTY/Quiz-App'
     },
     {
         name: todo,
-        heading: "Todo List"
+        heading: "Todo List",
+        liveLink: 'https://github.com/JIBANJYOTIMOHANTY/To-Do-List'
     },
 ]
