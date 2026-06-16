@@ -86,13 +86,36 @@ const Projects = forwardRef((props, ref) => {
                 ></div>
                 {/* Glow Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <span className="p-3 rounded-full bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-black border border-cyan-500/30 transition cursor-pointer shadow-[0_0_10px_rgba(6,182,212,0.2)]">
-                    <CodeIcon fontSize="small" />
-                  </span>
-                  <span className="p-3 rounded-full bg-fuchsia-500/10 hover:bg-fuchsia-500 text-fuchsia-400 hover:text-black border border-fuchsia-500/30 transition cursor-pointer shadow-[0_0_10px_rgba(217,70,239,0.2)]">
-                    <LaunchIcon fontSize="small" />
-                  </span>
+                  {item.codeLink ? (
+                    <a 
+                      href={item.codeLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 rounded-full bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-black border border-cyan-500/30 transition cursor-pointer shadow-[0_0_10px_rgba(6,182,212,0.2)]"
+                    >
+                      <CodeIcon fontSize="small" />
+                    </a>
+                  ) : (
+                    <span className="p-3 rounded-full bg-cyan-500/10 text-gray-500 border border-cyan-500/10 cursor-not-allowed shadow-[0_0_10px_rgba(6,182,212,0.05)]">
+                      <CodeIcon fontSize="small" />
+                    </span>
+                  )}
+                  {item.liveLink ? (
+                    <a 
+                      href={item.liveLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 rounded-full bg-fuchsia-500/10 hover:bg-fuchsia-500 text-fuchsia-400 hover:text-black border border-fuchsia-500/30 transition cursor-pointer shadow-[0_0_10px_rgba(217,70,239,0.2)]"
+                    >
+                      <LaunchIcon fontSize="small" />
+                    </a>
+                  ) : (
+                    <span className="p-3 rounded-full bg-fuchsia-500/10 text-gray-500 border border-fuchsia-500/10 cursor-not-allowed shadow-[0_0_10px_rgba(217,70,239,0.05)]">
+                      <LaunchIcon fontSize="small" />
+                    </span>
+                  )}
                 </div>
+
               </div>
 
               {/* Card Body */}
