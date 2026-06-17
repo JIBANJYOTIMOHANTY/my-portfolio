@@ -82,7 +82,6 @@ const Contact = forwardRef((props, ref) => {
         e.preventDefault();
 
         if (!validate()) {
-            toast.error('Please correct the validation errors below.', { theme: "dark" });
             return;
         }
 
