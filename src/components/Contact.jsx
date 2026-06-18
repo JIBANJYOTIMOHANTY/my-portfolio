@@ -82,6 +82,7 @@ const Contact = forwardRef((props, ref) => {
         e.preventDefault();
 
         if (!validate()) {
+            toast.error('Please correct the validation errors below.', { theme: "dark" });
             return;
         }
 
@@ -124,24 +125,23 @@ const Contact = forwardRef((props, ref) => {
                     <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-cyan-500/40"></div>
                     <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-cyan-500/40"></div>
                     <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyan-500/40"></div>
-                    
+
                     <form ref={form} onSubmit={sendEmail} className="space-y-6">
                         {/* Name Input */}
                         <div className="relative group">
                             <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none ${errors.user_name ? 'text-rose-500' : 'text-gray-500 group-focus-within:text-fuchsia-400'} transition-colors`}>
                                 <PersonIcon fontSize="small" />
                             </div>
-                            <input 
-                                type="text" 
-                                name="user_name" 
-                                placeholder="Your Name" 
+                            <input
+                                type="text"
+                                name="user_name"
+                                placeholder="Your Name"
                                 value={formData.user_name}
                                 onChange={handleChange}
-                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${
-                                    errors.user_name 
-                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]' 
-                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
-                                }`} 
+                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${errors.user_name
+                                        ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                                        : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                    }`}
                             />
                             {errors.user_name && (
                                 <p className="text-rose-450 text-xs font-mono mt-1.5 pl-1 flex items-center gap-1 animate-pulse">
@@ -156,17 +156,16 @@ const Contact = forwardRef((props, ref) => {
                             <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none ${errors.user_email ? 'text-rose-500' : 'text-gray-500 group-focus-within:text-fuchsia-400'} transition-colors`}>
                                 <AlternateEmailIcon fontSize="small" />
                             </div>
-                            <input 
-                                type="email" 
-                                name="user_email" 
-                                placeholder="Your Email Address" 
+                            <input
+                                type="email"
+                                name="user_email"
+                                placeholder="Your Email Address"
                                 value={formData.user_email}
                                 onChange={handleChange}
-                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${
-                                    errors.user_email 
-                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]' 
-                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
-                                }`} 
+                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${errors.user_email
+                                        ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                                        : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                    }`}
                             />
                             {errors.user_email && (
                                 <p className="text-rose-450 text-xs font-mono mt-1.5 pl-1 flex items-center gap-1 animate-pulse">
@@ -181,17 +180,16 @@ const Contact = forwardRef((props, ref) => {
                             <div className={`absolute top-4 left-0 pl-4 flex items-start pointer-events-none ${errors.message ? 'text-rose-500' : 'text-gray-500 group-focus-within:text-fuchsia-400'} transition-colors`}>
                                 <MessageIcon fontSize="small" />
                             </div>
-                            <textarea 
-                                name="message" 
+                            <textarea
+                                name="message"
                                 rows="5"
-                                placeholder="Your Message" 
+                                placeholder="Your Message"
                                 value={formData.message}
                                 onChange={handleChange}
-                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 resize-none text-white font-mono text-base placeholder-gray-600 ${
-                                    errors.message 
-                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]' 
-                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
-                                }`} 
+                                className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 resize-none text-white font-mono text-base placeholder-gray-600 ${errors.message
+                                        ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                                        : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                    }`}
                             />
                             {errors.message && (
                                 <p className="text-rose-450 text-xs font-mono mt-1.5 pl-1 flex items-center gap-1 animate-pulse">
@@ -203,8 +201,8 @@ const Contact = forwardRef((props, ref) => {
 
                         {/* Submit Button */}
                         <div className="flex justify-center pt-4">
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-black hover:bg-fuchsia-500 border border-fuchsia-500/50 hover:border-fuchsia-400 text-fuchsia-450 hover:text-black font-mono font-bold rounded-xl shadow-[0_0_15px_rgba(217,70,239,0.15)] hover:shadow-[0_0_20px_#d946ef] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                             >
                                 <SendIcon fontSize="small" />
