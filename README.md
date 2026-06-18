@@ -1,8 +1,25 @@
-# React + Vite
+# Jiban Jyoti Mohanty - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio repository. This website showcases my projects, skills, professional experience, and education.
 
-Currently, two official plugins are available:
+🚀 **Live Site**: [https://jibanportfolio.netlify.app/](https://jibanportfolio.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend**: React.js, Tailwind CSS, Material UI (MUI Icons)
+- **Backend & Core**: Java, Spring Boot, Node.js, Express.js
+- **Databases**: PostgreSQL, MySQL, MongoDB
+- **DevOps**: Docker, Git, Nginx, Jenkins, AWS, Microsoft Azure
+- **Build Tool**: Vite
+
+---
+
+## 💻 Features
+
+- **Responsive Design**: Clean and interactive layout optimized for mobile, tablet, and desktop screens.
+- **Project Showcase**: Detailed lists of my software engineering and full stack projects with live demos and repository links.
+- **Skill Categories**: Well-structured stack listing highlighting expertise in Backend, Frontend, Mobile, Database, and DevOps categories.
+- **Contact Form**: Functional contact gateway integrated with EmailJS for direct communication.
+- **SEO Optimized**: Standardized meta headers, Open Graph parameters, sitemaps, and robots.txt configurations to enhance search visibility.
