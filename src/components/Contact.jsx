@@ -82,6 +82,7 @@ const Contact = forwardRef((props, ref) => {
         e.preventDefault();
 
         if (!validate()) {
+            toast.error('Please correct the validation errors below.', { theme: "dark" });
             return;
         }
 
@@ -138,8 +139,8 @@ const Contact = forwardRef((props, ref) => {
                                 value={formData.user_name}
                                 onChange={handleChange}
                                 className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${errors.user_name
-                                        ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
-                                        : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
                                     }`}
                             />
                             {errors.user_name && (
@@ -162,8 +163,8 @@ const Contact = forwardRef((props, ref) => {
                                 value={formData.user_email}
                                 onChange={handleChange}
                                 className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 text-white font-mono text-base placeholder-gray-600 ${errors.user_email
-                                        ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
-                                        : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
                                     }`}
                             />
                             {errors.user_email && (
@@ -186,8 +187,8 @@ const Contact = forwardRef((props, ref) => {
                                 value={formData.message}
                                 onChange={handleChange}
                                 className={`w-full pl-11 pr-4 py-4 bg-black/50 border rounded-xl outline-none transition-all duration-300 resize-none text-white font-mono text-base placeholder-gray-600 ${errors.message
-                                        ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
-                                        : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
+                                    ? 'border-rose-500/50 hover:border-rose-500/80 focus:border-rose-500 focus:shadow-[0_0_15px_rgba(244,63,94,0.15)]'
+                                    : 'border-cyan-500/25 hover:border-cyan-500/40 focus:border-fuchsia-500 focus:shadow-[0_0_15px_rgba(217,70,239,0.15)]'
                                     }`}
                             />
                             {errors.message && (
