@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jibanjyotimahanty.github.io/my-portfolio/sitemap.xml
+Sitemap: https://jibanportfolio.netlify.app/sitemap.xml
