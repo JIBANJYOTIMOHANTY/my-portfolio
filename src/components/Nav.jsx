@@ -5,22 +5,27 @@ function Nav({educationRef,experienceRef,skillRef,projectRef,contactRef}) {
     const [isOpen, setIsOpen] = useState(false);
 
     const scrollToEducaiton = (e) => {
+        e.preventDefault();
         educationRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
     const scrollToExperience = (e) => {
+        e.preventDefault();
         experienceRef.current.scrollIntoView({ behavior: 'smooth' });
     };
     
     const scrollToSkill = (e) => {
+        e.preventDefault();
         skillRef.current.scrollIntoView({behavior:'smooth'})
     }
 
     const scrollToProject = (e) => {
+        e.preventDefault();
         projectRef.current.scrollIntoView({behavior:'smooth'})
     }
 
     const scrollToContact = (e) => {
+        e.preventDefault();
         contactRef.current.scrollIntoView({behavior:'smooth'})
     }
 
@@ -44,17 +49,17 @@ function Nav({educationRef,experienceRef,skillRef,projectRef,contactRef}) {
                     </button>
                 </div>
                 <div className={`flex-col md:flex md:flex-row md:items-center gap-2 md:gap-6 ${isOpen ? 'flex absolute top-full left-0 w-full bg-[#08080C] p-4 border-b border-cyan-500/30' : 'hidden md:flex'}`}>
-                    <a href="/" className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">About</a>
+                    <a href="#about" className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">About</a>
 
-                    <a onClick={scrollToExperience} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Experience</a>
+                    <a href="#experience" onClick={scrollToExperience} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Experience</a>
 
-                    <a onClick={scrollToSkill} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Skills</a>
+                    <a href="#skills" onClick={scrollToSkill} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Skills</a>
 
-                    <a onClick={scrollToEducaiton} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Education</a>
+                    <a href="#education" onClick={scrollToEducaiton} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Education</a>
 
-                    <a onClick={scrollToProject} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Projects</a>
+                    <a href="#projects" onClick={scrollToProject} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Projects</a>
 
-                    <a onClick={scrollToContact} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Contact</a>
+                    <a href="#contact" onClick={scrollToContact} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Contact</a>
                 </div>
             </div>
         </nav>

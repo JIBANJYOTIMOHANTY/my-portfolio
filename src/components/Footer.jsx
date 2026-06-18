@@ -6,22 +6,27 @@ import PersonIcon from '@mui/icons-material/Person';
 
 const Footer = ({educationRef,experienceRef,skillRef,projectRef,contactRef}) => {
   const scrollToEducaiton = (e) => {
+    e.preventDefault();
     educationRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToExperience = (e) => {
+    e.preventDefault();
     experienceRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToSkill = (e) => {
+    e.preventDefault();
     skillRef.current.scrollIntoView({behavior:'smooth'})
   }
 
   const scrollToProject = (e) => {
+    e.preventDefault();
     projectRef.current.scrollIntoView({behavior:'smooth'})
   }
 
   const scrollToContact = (e) => {
+    e.preventDefault();
     contactRef.current.scrollIntoView({behavior:'smooth'})
   }
   return (
@@ -34,12 +39,12 @@ const Footer = ({educationRef,experienceRef,skillRef,projectRef,contactRef}) => 
               // Quick Links
             </h2>
             <ul className="space-y-2.5 font-mono text-gray-400 text-sm">
-              <li><a href="/" className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; About</a></li>
-              <li><a onClick={scrollToExperience} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Experience</a></li>
-              <li><a onClick={scrollToSkill} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Skills</a></li>
-              <li><a onClick={scrollToEducaiton} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Education</a></li>
-              <li><a onClick={scrollToProject} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Projects</a></li>
-              <li><a onClick={scrollToContact} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Contact</a></li>
+              <li><a href="#about" className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; About</a></li>
+              <li><a href="#experience" onClick={scrollToExperience} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Experience</a></li>
+              <li><a href="#skills" onClick={scrollToSkill} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Skills</a></li>
+              <li><a href="#education" onClick={scrollToEducaiton} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Education</a></li>
+              <li><a href="#projects" onClick={scrollToProject} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Projects</a></li>
+              <li><a href="#contact" onClick={scrollToContact} className="hover:text-cyan-400 transition-colors cursor-pointer">&gt; Contact</a></li>
             </ul>
           </div>
 
@@ -53,6 +58,7 @@ const Footer = ({educationRef,experienceRef,skillRef,projectRef,contactRef}) => 
                 href="https://www.linkedin.com/in/jiban-jyoti-mohanty-35005021a/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn Profile"
                 className="p-2.5 bg-black hover:bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-xl hover:shadow-[0_0_15px_#06b6d4] hover:border-cyan-400 transition-all duration-300"
               >
                 <LinkedIn />
@@ -61,6 +67,7 @@ const Footer = ({educationRef,experienceRef,skillRef,projectRef,contactRef}) => 
                 href="https://github.com/JIBANJYOTIMOHANTY/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="GitHub Profile"
                 className="p-2.5 bg-black hover:bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/30 rounded-xl hover:shadow-[0_0_15px_#d946ef] hover:border-fuchsia-400 transition-all duration-300"
               >
                 <GitHub />
@@ -69,6 +76,7 @@ const Footer = ({educationRef,experienceRef,skillRef,projectRef,contactRef}) => 
                 href="https://www.instagram.com/jiban__jyoti__mohanty/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Instagram Profile"
                 className="p-2.5 bg-black hover:bg-pink-500/10 text-pink-400 border border-pink-500/30 rounded-xl hover:shadow-[0_0_15px_#ec4899] hover:border-pink-400 transition-all duration-300"
               >
                 <Instagram />

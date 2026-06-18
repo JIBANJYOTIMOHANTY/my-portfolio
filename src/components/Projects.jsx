@@ -91,6 +91,7 @@ const Projects = forwardRef((props, ref) => {
                       href={item.codeLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
+                      aria-label={`View Source Code for ${item.heading}`}
                       className="p-3 rounded-full bg-cyan-500/10 hover:bg-cyan-500 text-cyan-400 hover:text-black border border-cyan-500/30 transition cursor-pointer shadow-[0_0_10px_rgba(6,182,212,0.2)]"
                     >
                       <CodeIcon fontSize="small" />
@@ -105,6 +106,7 @@ const Projects = forwardRef((props, ref) => {
                       href={item.liveLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
+                      aria-label={`View Live Demo for ${item.heading}`}
                       className="p-3 rounded-full bg-fuchsia-500/10 hover:bg-fuchsia-500 text-fuchsia-400 hover:text-black border border-fuchsia-500/30 transition cursor-pointer shadow-[0_0_10px_rgba(217,70,239,0.2)]"
                     >
                       <LaunchIcon fontSize="small" />

@@ -61,6 +61,7 @@ const About = () => {
                 href="https://www.linkedin.com/in/jiban-jyoti-mohanty-35005021a/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="LinkedIn Profile"
                 className="p-3 bg-black hover:bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-xl hover:shadow-[0_0_15px_#06b6d4] hover:border-cyan-400 transition-all duration-300"
               >
                 <LinkedIn sx={{ fontSize: 28 }} />
@@ -69,6 +70,7 @@ const About = () => {
                 href="https://github.com/JIBANJYOTIMOHANTY/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="GitHub Profile"
                 className="p-3 bg-black hover:bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/30 rounded-xl hover:shadow-[0_0_15px_#d946ef] hover:border-fuchsia-400 transition-all duration-300"
               >
                 <GitHub sx={{ fontSize: 28 }} />
@@ -77,6 +79,7 @@ const About = () => {
                 href="https://www.instagram.com/jiban__jyoti__mohanty/"
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Instagram Profile"
                 className="p-3 bg-black hover:bg-pink-500/10 text-pink-400 border border-pink-500/30 rounded-xl hover:shadow-[0_0_15px_#ec4899] hover:border-pink-400 transition-all duration-300"
               >
                 <Instagram sx={{ fontSize: 28 }} />
