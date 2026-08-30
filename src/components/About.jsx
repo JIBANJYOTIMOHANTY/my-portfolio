@@ -15,10 +15,10 @@ const About = () => {
 
   return (
     <div className="w-full bg-transparent min-h-[85vh] flex items-center" id="about">
-      <div className="container mx-auto px-4 md:px-12 lg:px-24">
-        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12">
+      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+        <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-8 md:gap-12">
           {/* Image Section with Hologram Target lines */}
-          <section className="w-full md:w-1/2 flex justify-center relative group">
+          <section className="w-full md:w-5/12 lg:w-2/5 flex justify-center relative group">
             {/* Cyberpunk corner bracket styling */}
             <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-cyan-400"></div>
             <div className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-cyan-400"></div>
@@ -37,7 +37,7 @@ const About = () => {
           </section>
 
           {/* Text Section */}
-          <section className="w-full md:w-1/2 flex flex-col justify-center text-left">
+          <section className="w-full md:w-7/12 lg:w-3/5 flex flex-col justify-center text-left">
             <span className="text-cyan-400 font-mono tracking-widest text-xs md:text-sm uppercase mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
               [system_status: online]
@@ -45,7 +45,7 @@ const About = () => {
             <h1 className="text-white text-5xl md:text-7xl font-poppins font-extrabold tracking-tight mb-2">
               Hi, I am
             </h1>
-            <h2 className={`text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-purple-400 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-mono font-extrabold tracking-wide whitespace-nowrap transition-opacity duration-1000 ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <h2 className={`text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-purple-400 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-mono font-extrabold tracking-tight transition-opacity duration-1000 ${textVisible ? 'opacity-100' : 'opacity-0'}`}>
               Jiban Jyoti Mohanty
             </h2>
             <h3 className="text-gray-300 text-xl md:text-3xl mt-4 font-mono font-semibold flex items-center gap-2.5">

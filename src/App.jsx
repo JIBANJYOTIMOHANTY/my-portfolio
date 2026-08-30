@@ -48,7 +48,7 @@ function App() {
         <Nav educationRef={educationRef} experienceRef={experienceRef} skillRef={skillRef} projectRef={projectRef} contactRef={contactRef} />
         
         {/* Core Layout */}
-        <div className="relative z-10">
+        <div className="relative z-10 pt-20">
           <About />
           <Experience ref={experienceRef} />
           <Skill ref={skillRef} />

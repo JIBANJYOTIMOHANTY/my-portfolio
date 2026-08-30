@@ -1,68 +1,139 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from "../logo/logo.png"
 
 function Nav({educationRef,experienceRef,skillRef,projectRef,contactRef}) {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('about');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['about', 'experience', 'skills', 'education', 'projects', 'contact'];
+            const scrollPosition = window.scrollY + 250;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sections[i]);
+                if (el && el.offsetTop <= scrollPosition) {
+                    setActiveSection(sections[i]);
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToAbout = (e) => {
+        e.preventDefault();
+        const el = document.getElementById('about');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
 
     const scrollToEducaiton = (e) => {
         e.preventDefault();
-        educationRef.current.scrollIntoView({ behavior: 'smooth' });
+        if (educationRef?.current) {
+            educationRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const scrollToExperience = (e) => {
         e.preventDefault();
-        experienceRef.current.scrollIntoView({ behavior: 'smooth' });
+        if (experienceRef?.current) {
+            experienceRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
     
     const scrollToSkill = (e) => {
         e.preventDefault();
-        skillRef.current.scrollIntoView({behavior:'smooth'})
-    }
+        if (skillRef?.current) {
+            skillRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const scrollToProject = (e) => {
         e.preventDefault();
-        projectRef.current.scrollIntoView({behavior:'smooth'})
-    }
+        if (projectRef?.current) {
+            projectRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const scrollToContact = (e) => {
         e.preventDefault();
-        contactRef.current.scrollIntoView({behavior:'smooth'})
-    }
+        if (contactRef?.current) {
+            contactRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
+    const getLinkClass = (sectionName) => {
+        const isActive = activeSection === sectionName;
+        return `px-3 py-1.5 text-xs lg:text-sm font-mono tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
+            isActive
+                ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/50 shadow-[0_0_12px_rgba(6,182,212,0.25)]'
+                : 'text-gray-400 hover:text-cyan-300 hover:bg-cyan-500/10 border border-transparent hover:border-cyan-500/20'
+        }`;
+    };
+
+    const getMobileLinkClass = (sectionName) => {
+        const isActive = activeSection === sectionName;
+        return `px-3 py-2 text-sm font-mono tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
+            isActive
+                ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/50'
+                : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10'
+        }`;
+    };
+
     return (
-        <nav className="sticky top-0 z-50 bg-[#08080C]/85 backdrop-blur-md border-b border-cyan-500/30 p-4">
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="text-2xl font-bold font-mono tracking-wider">
-                    <a href="/" className="bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
-                        &lt;JIBAN.DEV //&gt;
-                    </a>
+        <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[94%] max-w-5xl">
+            <div className="bg-[#08080C]/80 backdrop-blur-xl border border-cyan-500/30 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6),0_0_20px_rgba(6,182,212,0.12)] px-4 sm:px-6 py-3 transition-all duration-300">
+                <div className="flex justify-between items-center">
+                    <div className="text-xl sm:text-2xl font-bold font-mono tracking-wider">
+                        <a href="/" className="bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+                            &lt;JIBAN.DEV //&gt;
+                        </a>
+                    </div>
+
+                    {/* Mobile Hamburger Button */}
+                    <div className="md:hidden">
+                        <button 
+                            onClick={toggleMenu} 
+                            className="text-cyan-400 focus:outline-none p-1.5 hover:bg-cyan-500/10 rounded-lg border border-cyan-500/30 transition-colors"
+                            aria-label="Toggle navigation menu"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Desktop Navigation Links */}
+                    <div className="hidden md:flex md:items-center gap-1 lg:gap-2">
+                        <a href="#about" onClick={scrollToAbout} className={getLinkClass('about')}>About</a>
+                        <a href="#experience" onClick={scrollToExperience} className={getLinkClass('experience')}>Experience</a>
+                        <a href="#skills" onClick={scrollToSkill} className={getLinkClass('skills')}>Skills</a>
+                        <a href="#education" onClick={scrollToEducaiton} className={getLinkClass('education')}>Education</a>
+                        <a href="#projects" onClick={scrollToProject} className={getLinkClass('projects')}>Projects</a>
+                        <a href="#contact" onClick={scrollToContact} className={getLinkClass('contact')}>Contact</a>
+                    </div>
                 </div>
-                <div className="md:hidden">
-                    <button onClick={toggleMenu} className="text-cyan-400 focus:outline-none p-1 hover:bg-cyan-500/10 rounded border border-cyan-500/30 transition-colors">
-                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16m-7 6h7'}></path>
-                         </svg>
-                    </button>
-                </div>
-                <div className={`flex-col md:flex md:flex-row md:items-center gap-2 md:gap-6 ${isOpen ? 'flex absolute top-full left-0 w-full bg-[#08080C] p-4 border-b border-cyan-500/30' : 'hidden md:flex'}`}>
-                    <a href="#about" className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">About</a>
 
-                    <a href="#experience" onClick={scrollToExperience} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Experience</a>
-
-                    <a href="#skills" onClick={scrollToSkill} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Skills</a>
-
-                    <a href="#education" onClick={scrollToEducaiton} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Education</a>
-
-                    <a href="#projects" onClick={scrollToProject} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Projects</a>
-
-                    <a href="#contact" onClick={scrollToContact} className="text-gray-400 hover:text-cyan-400 px-3 py-1.5 text-sm font-mono tracking-widest uppercase cursor-pointer rounded hover:bg-cyan-500/5 border border-transparent hover:border-cyan-500/20 transition-all">Contact</a>
-                </div>
+                {/* Mobile Dropdown Menu */}
+                {isOpen && (
+                    <div className="md:hidden mt-3 pt-3 border-t border-cyan-500/20 flex flex-col gap-1.5 animate-fadeIn">
+                        <a href="#about" onClick={(e) => { scrollToAbout(e); setIsOpen(false); }} className={getMobileLinkClass('about')}>About</a>
+                        <a href="#experience" onClick={(e) => { scrollToExperience(e); setIsOpen(false); }} className={getMobileLinkClass('experience')}>Experience</a>
+                        <a href="#skills" onClick={(e) => { scrollToSkill(e); setIsOpen(false); }} className={getMobileLinkClass('skills')}>Skills</a>
+                        <a href="#education" onClick={(e) => { scrollToEducaiton(e); setIsOpen(false); }} className={getMobileLinkClass('education')}>Education</a>
+                        <a href="#projects" onClick={(e) => { scrollToProject(e); setIsOpen(false); }} className={getMobileLinkClass('projects')}>Projects</a>
+                        <a href="#contact" onClick={(e) => { scrollToContact(e); setIsOpen(false); }} className={getMobileLinkClass('contact')}>Contact</a>
+                    </div>
+                )}
             </div>
-        </nav>
+        </header>
     )
 }
 
