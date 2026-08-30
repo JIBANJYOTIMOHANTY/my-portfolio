@@ -49,7 +49,7 @@ const About = () => {
               Jiban Jyoti Mohanty
             </h2>
             <h3 className="text-gray-300 text-xl md:text-3xl mt-4 font-mono font-semibold flex items-center gap-2.5">
-              &lt;Fullstack Developer //&gt;
+              &lt; Software Engineer //&gt;
             </h3>
             <p className="text-gray-400 text-base md:text-lg mt-6 font-poppins leading-relaxed max-w-xl">
               If you'd like to collaborate or have any questions, feel free to reach out to me. I'm excited to connect with you and build something amazing together!
