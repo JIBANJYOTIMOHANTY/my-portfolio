@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html,
+body {
+  background-color: #08080C;
+  color: #e5e7eb;
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  min-height: 100%;
 }
+
