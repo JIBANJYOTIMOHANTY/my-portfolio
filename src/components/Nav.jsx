@@ -88,8 +88,8 @@ function Nav({educationRef,experienceRef,skillRef,projectRef,contactRef}) {
     };
 
     return (
-        <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[94%] max-w-5xl">
-            <div className="bg-[#08080C]/80 backdrop-blur-xl border border-cyan-500/30 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6),0_0_20px_rgba(6,182,212,0.12)] px-4 sm:px-6 py-3 transition-all duration-300">
+        <header className="fixed top-0 left-0 right-0 w-full z-50 bg-[#08080C]/95 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.8)] transition-all duration-300">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
                 <div className="flex justify-between items-center">
                     <div className="text-xl sm:text-2xl font-bold font-mono tracking-wider">
                         <a href="/" className="bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">

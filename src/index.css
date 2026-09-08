@@ -13,3 +13,15 @@ body {
   min-height: 100%;
 }
 
+.Toastify__toast-container {
+  z-index: 99999 !important;
+}
+
+.Toastify__toast-container--top-right {
+  top: 4.75rem !important;
+  right: 1.25rem !important;
+  max-width: 340px !important;
+  width: auto !important;
+}
+
+

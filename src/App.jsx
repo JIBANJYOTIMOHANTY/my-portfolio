@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
 import Nav from './components/Nav'
 import About from './components/About'
@@ -44,6 +46,20 @@ function App() {
         <div className="absolute top-[180vh] left-[-15%] w-[45rem] h-[45rem] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none"></div>
         <div className="absolute top-[280vh] right-[-15%] w-[45rem] h-[45rem] bg-fuchsia-500/5 rounded-full blur-[140px] pointer-events-none"></div>
         
+        {/* Toast Notifications */}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+
         {/* Navigation */}
         <Nav educationRef={educationRef} experienceRef={experienceRef} skillRef={skillRef} projectRef={projectRef} contactRef={contactRef} />
         

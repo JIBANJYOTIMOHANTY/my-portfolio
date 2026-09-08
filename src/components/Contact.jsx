@@ -1,7 +1,6 @@
 import React, { forwardRef, useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import PersonIcon from '@mui/icons-material/Person';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -23,14 +22,7 @@ const Contact = forwardRef((props, ref) => {
     });
 
     const popUp = () => {
-        toast.success(' Message Sent Successfully!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
+        toast.success('Message Sent Successfully!', {
             theme: "dark",
         });
     }
@@ -82,6 +74,9 @@ const Contact = forwardRef((props, ref) => {
         e.preventDefault();
 
         if (!validate()) {
+            toast.error('Please fill in all required fields correctly.', {
+                theme: "dark"
+            });
             return;
         }
 
@@ -211,18 +206,6 @@ const Contact = forwardRef((props, ref) => {
                     </form>
                 </div>
             </div>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
         </div>
     )
 });
